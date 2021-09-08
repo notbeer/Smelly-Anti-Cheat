@@ -15,12 +15,12 @@ export function antiFly(player) {
     const distanceZ = getDistanceZ(player, oldZ);
 
     if(distanceX > 20 || distanceZ > 20) {
-        runCommand(`execute "${player.name}" ~~~ event entity @s antiCheat:antiFly`);
-        const flyHackingTag = hasTag(player.name, "flyHacking");
+        runCommand(`execute "${player.nameTag}" ~~~ event entity @s antiCheat:antiFly`);
+        const flyHackingTag = hasTag(player.nameTag, "flyHacking");
         if(flyHackingTag) {
-            runCommand(`execute "${player.name}" ~~~ execute @s[m=!c] ~~~ tp @s ${oldX} ${oldY - 1} ${oldZ}`);
-            runCommand(`execute "${player.name}" ~~~ tag @s remove flyHacking`);
-            runCommand(`execute "${player.name}" ~~~ tag @s remove tpr`);
+            runCommand(`execute "${player.nameTag}" ~~~ execute @s[m=!c] ~~~ tp @s ${oldX} ${oldY - 1} ${oldZ}`);
+            runCommand(`execute "${player.nameTag}" ~~~ tag @s remove flyHacking`);
+            runCommand(`execute "${player.nameTag}" ~~~ tag @s remove tpr`);
         };
     };
 };
